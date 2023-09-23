@@ -14,29 +14,34 @@
             {% csrf_token %}
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td><input type="text" name="enm" autocomplete="off" required class="form-control"></td>
+                    <td>Customer Id</td>
+                    <td><input type="number" name="cstId" autocomplete="off" required class="form-control"></td>
                 </tr>
                 <tr>
-                    <td>Department</td>
+                    <td>Cars Type</td>
                     <td>
-                        <select name="dept" class="form-control">
-                            <option value="marketing">Marketing</option>
-                            <option value="sales">Sales</option>
-                            <option value="admin">Admin</option>
-                            <option value="finance">Finance</option>
-                            <option value="tech">Technology</option>
+                        <select name="cars" class="form-control">
+                            <option value="sedan">Sedan</option>
+                            <option value="hashbag">hashbag</option>
+                            <option value="crossover">crossover</option>
+                            <!-- <option value="finance">Finance</option>
+                            <option value="tech">Technology</option> -->
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <td>Post</td>
-                    <td><input type="text" name="post" autocomplete="off" required class="form-control"></td>
+                    <td>Customer Name</td>
+                    <td><input type="text" name="cstNm" autocomplete="off" required class="form-control"></td>
                 </tr>
 
                 <tr>
-                    <td>Salary</td>
-                    <td><input type="number" name="sal" autocomplete="off" required class="form-control"></td>
+                    <td>Car Name</td>
+                    <td><input type="text" name="carNm" autocomplete="off" required class="form-control"></td>
+                </tr>
+
+                <tr>
+                    <td>City</td>
+                    <td><input type="text" name="ctNm" autocomplete="off" required class="form-control"></td>
                 </tr>
 
                 <tr>

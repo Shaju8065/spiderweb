@@ -2,12 +2,12 @@ import pymysql
 from pymongo import MongoClient
 
 class EmpOperations:
-    def addnewemployee(self,nm,dp,ps,sl):
+    def addnewemployee(self,custId,carType,custName,carName, cityName):
         status=None
         try:
             con=pymysql.connect(host='bwhi9tgmciqdnqidftqa-mysql.services.clever-cloud.com',user='ua76mfassmwczyly',password='Ydvss4Uh9wudTv7RCasm',database='bwhi9tgmciqdnqidftqa')
             curs=con.cursor()
-            curs.execute("insert into employee(empnm,dept,post,salary) values('%s','%s','%s','%.2f')" %(nm,dp,ps,sl))
+            curs.execute("insert into employee(cstId,car,cstNm,carNm, cityNm) values('%.2f','%s','%s','%s', '%s')" %(custId, carType, custName, carName, cityName))
             con.commit()
             con.close()
             status='success'

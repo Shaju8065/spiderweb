@@ -10,22 +10,55 @@ def newemp(request):
     return render(request,"NewEmployee.html")
     
 
+# def addemp(request):
+#     if request.method=="POST":
+#         cstid=float(request.POST.get("cstId"))
+#         cr=request.POST.get("cars")
+#         csnm=request.POST.get("cstNm")
+#         crnm=request.POST.get("carNm")
+#         ctnm=request.POST.get("ctNm")
+#         # call a processing funtion (models)
+#         obj=EmpOperations()
+#         stat=obj.addnewemployee(id, cr, csnm, crnm, ctnm)
+#         dic={}
+#         dic['cstid']=cstid
+#         dic['car']=cr
+#         dic['csnm']=csnm
+#         dic['crnm']=crnm
+#         dic['ctnm']=ctnm
+#         dic['status']=stat
+#     return render(request,"EmployeeAdded.html",dic)
+
 def addemp(request):
-    if request.method=="POST":
-        nm=request.POST.get("enm")
-        dp=request.POST.get("dept")
-        ps=request.POST.get("post")
-        sl=float(request.POST.get("sal"))
-        # call a processing funtion (models)
-        obj=EmpOperations()
-        stat=obj.addnewemployee(nm,dp,ps,sl)
-        dic={}
-        dic['name']=nm
-        dic['dept']=dp
-        dic['post']=ps
-        dic['salary']=sl
-        dic['status']=stat
-    return render(request,"EmployeeAdded.html",dic)
+    if request.method == "POST":
+        cstid = float(request.POST.get("cstId"))
+        cr = request.POST.get("cars")
+        csnm = request.POST.get("cstNm")
+        crnm = request.POST.get("carNm")
+        ctnm = request.POST.get("ctNm")
+
+        try:
+            # Call a processing function (models) to add a new employee
+            obj = EmpOperations()
+            stat = obj.addnewemployee(cstid, cr, csnm, crnm, ctnm)
+            status = 'success'
+        except Exception as e:
+            print(e)
+            status = 'error'
+
+        # Prepare a context dictionary to pass data to the template
+        context = {
+            'cstid': cstid,
+            'car': cr,
+            'csnm': csnm,
+            'crnm': crnm,
+            'ctnm': ctnm,
+            'status': status,
+        }
+
+        return render(request, "EmployeeAdded.html", context)
+
+    return render(request, "EmployeeAdded.html")
 
 
 def empreport(request):
