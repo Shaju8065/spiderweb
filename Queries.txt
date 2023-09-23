@@ -1,0 +1,10 @@
+
+
+create table employee
+(
+empno int primary key auto_increment,
+empnm varchar(50),
+dept varchar(20),
+post varchar(20),
+salary float
+);

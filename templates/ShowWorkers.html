@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+</head>
+<body style="margin-top: 40px;">
+    <div class="container">
+        <h2 class="display-4">MongoDB report</h2>
+        <hr>
+        
+            {% for rec in data %}
+        <br>{{rec}}
+            {%endfor%}
+
+            <br><br>
+            <a href="/spider/">Home</a>
+    </div>
+    
+    
+</body>
+</html>
